@@ -1,4 +1,4 @@
-const BASE = "http://localhost:5000/api";
+const BASE = "https://issue-tracker-system-lue0.onrender.com/api";
 let token = localStorage.getItem("issueToken") || "";
 let currentUser = null, issues = [], users = [], authMode = "login";
 const headers = () => ({ "Content-Type":"application/json", ...(token ? {Authorization:`Bearer ${token}`} : {}) });
