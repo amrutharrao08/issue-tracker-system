@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Issue Tracker System</title><link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="authScreen" class="auth-screen">
+  <div class="auth-card">
+    <h1>IssueTrack</h1><p>Sign in to manage your issues</p>
+    <div class="auth-tabs"><button id="loginTab" class="selected" onclick="showAuth('login')">Login</button><button id="registerTab" onclick="showAuth('register')">Register</button></div>
+    <form id="authForm" onsubmit="submitAuth(event)">
+      <input id="authName" placeholder="Full name" style="display:none">
+      <input id="authEmail" type="email" placeholder="Email address" required>
+      <input id="authPassword" type="password" placeholder="Password (minimum 6 characters)" required>
+      <button type="submit" class="primary-btn" id="authSubmit">Login</button>
+    </form>
+    <p id="authMessage" class="auth-message"></p>
+    <small>Admin accounts are created using backend environment variables.</small>
+  </div>
+</div>
+<div id="appScreen" style="display:none">
+  <div class="sidebar"><h2>IssueTrack</h2><nav><a href="#" class="active">Dashboard</a><a href="#issues">All Issues</a></nav><div class="signed-in" id="signedIn"></div><button class="logout" onclick="logout()">Logout</button></div>
+  <main class="main-content">
+    <header><div><h1>Dashboard</h1><p>Welcome! Here's your issue overview.</p></div><button class="add-btn" onclick="openForm()">+ Create Issue</button></header>
+    <section class="stats">
+      <div class="stat-card"><p>Total Issues</p><h2 id="totalCount">0</h2></div>
+      <div class="stat-card"><p>Open</p><h2 id="openCount">0</h2></div>
+      <div class="stat-card"><p>In Progress</p><h2 id="progressCount">0</h2></div>
+      <div class="stat-card"><p>Closed</p><h2 id="closedCount">0</h2></div>
+    </section>
+    <section class="issues-section" id="issues"><h2>Recent Issues</h2><table><thead><tr><th>Issue</th><th>Assigned To</th><th>Priority</th><th>Status</th><th>Action</th></tr></thead><tbody id="issueTable"></tbody></table></section>
+    <div id="issueForm" class="modal"><div class="modal-content"><h2>Create New Issue</h2>
+      <input id="issueTitle" placeholder="Issue title" required><textarea id="issueDescription" placeholder="Description"></textarea>
+      <label>Assign to registered user</label><select id="assignedTo"><option value="">Unassigned</option></select>
+      <select id="priority"><option>Low</option><option selected>Medium</option><option>High</option></select>
+      <button onclick="addIssue()">Save Issue</button><button onclick="closeForm()">Cancel</button>
+    </div></div>
+  </main>
+</div>
+<script src="script.js"></script>
+</body></html>
