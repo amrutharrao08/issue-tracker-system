@@ -17,8 +17,8 @@ A web-based issue tracking application with user registration, login, admin role
    MONGO_URI=your_mongodb_connection_string
    JWT_SECRET=replace_with_a_long_random_secret
    ADMIN_NAME=Administrator
-   ADMIN_EMAIL=admin@example.com
-   ADMIN_PASSWORD=choose_a_strong_admin_password
+   ADMIN_EMAIL=admin123@gmail.com
+   ADMIN_PASSWORD=Admin@123
    ```
 4. Run `npm start` from `backend`.
 5. Open `frontend/index.html` in a browser.
